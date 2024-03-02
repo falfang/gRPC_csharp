@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package Calculation;
+
+service CalculationService {
+	rpc Operation (CalculationRequest) returns (stream CalculationResponse);
+}
+
+// Request from client to server
+message CalculationRequest {
+	int32 value1 = 1;
+	int32 value2 = 2;
+}
+
+// Response from server to client
+message CalculationResponse {
+	string message = 1;
+	int32 resultValue = 2;
+}
